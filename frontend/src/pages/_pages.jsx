@@ -561,11 +561,3 @@ export function SettingsPage() {
     </div>
   )
 }
-
-// ── Default exports ───────────────────────────────────────────
-export default TradesPage
-
-import { useMemo } from 'react'
-
-// Re-export named pages as defaults for the router
-export { CalendarPage   as default } from './CalendarPage'
