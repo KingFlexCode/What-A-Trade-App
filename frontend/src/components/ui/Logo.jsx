@@ -1,97 +1,50 @@
 import React from 'react'
 
-// ── Trader Pulse — Logo E ─────────────────────────────────────
-// Clean wordmark with a subtle pulse wave underline.
-// No icon block — the typography IS the brand.
-
 export function LogoMark({ size = 32 }) {
-  // Compact square favicon version of the wordmark for collapsed sidebar
+  const s = size
+  const pts = [
+    [0.14,0.78],[0.27,0.78],[0.34,0.59],[0.41,0.86],
+    [0.48,0.41],[0.55,0.65],[0.62,0.65],[0.72,0.53],
+    [0.81,0.60],[0.88,0.60],
+  ].map(([x,y]) => `${(x*s).toFixed(1)},${(y*s).toFixed(1)}`).join(' ')
+  const dotX = (0.88*s).toFixed(1)
+  const dotY = (0.60*s).toFixed(1)
+  const dotR = (s*0.07).toFixed(1)
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="#378ADD" opacity="0.12" />
-      {/* Mini pulse wave */}
-      <polyline
-        points="4,20 8,20 10,13 12,24 14,9 16,20 20,20 22,16 24,18 28,18"
-        stroke="#378ADD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-        fill="none"
-      />
-      <circle cx="28" cy="18" r="2" fill="#378ADD" />
+    <svg width={s} height={s} viewBox={`0 0 ${s} ${s}`} fill="none" aria-hidden="true">
+      <rect width={s} height={s} rx={s*0.22} fill="#0e1017"/>
+      <polyline points={pts} stroke="#378ADD" strokeWidth={s*0.078} strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx={dotX} cy={dotY} r={dotR} fill="#22d87a"/>
     </svg>
   )
 }
 
-// Full horizontal wordmark — used in the sidebar
 export function LogoFull({ collapsed = false }) {
-  if (collapsed) return <LogoMark size={28} />
-
+  if (collapsed) return <LogoMark size={30}/>
   return (
-    <svg width="152" height="28" viewBox="0 0 152 28" fill="none" aria-label="WhatATrade!" role="img">
-      <title>WhatATrade!</title>
-      {/* Wordmark */}
-      <text
-        x="0" y="20"
-        fontFamily="Outfit, ui-sans-serif, system-ui"
-        fontSize="18" fontWeight="500"
-        fill="var(--txt-0)"
-      >
-        Trader
-      </text>
-      <text
-        x="64" y="20"
-        fontFamily="Outfit, ui-sans-serif, system-ui"
-        fontSize="18" fontWeight="300"
-        fill="#378ADD"
-      >
-        Pulse
-      </text>
-      {/* Pulse underline — spans full wordmark width */}
-      <polyline
-        points="0,25 14,25 17,20 20,28 23,15 26,25 40,25 47,21 54,23 64,23 152,23"
-        stroke="#378ADD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
-        fill="none" opacity="0.55"
-      />
-      {/* Live dot */}
-      <circle cx="54" cy="23" r="1.8" fill="#378ADD" opacity="0.8" />
-    </svg>
+    <div style={{display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
+      <LogoMark size={32}/>
+      <svg width="136" height="22" viewBox="0 0 136 22" fill="none" aria-label="WhatATrade!" role="img" style={{flexShrink:0}}>
+        <text x="0"   y="17" fontFamily="Outfit,ui-sans-serif" fontSize="16" fontWeight="600" fill="#f0f2ff">What</text>
+        <text x="48"  y="17" fontFamily="Outfit,ui-sans-serif" fontSize="16" fontWeight="400" fill="#378ADD">A</text>
+        <text x="60"  y="17" fontFamily="Outfit,ui-sans-serif" fontSize="16" fontWeight="300" fill="#f0f2ff">Trade</text>
+        <text x="110" y="17" fontFamily="Outfit,ui-sans-serif" fontSize="18" fontWeight="700" fill="#22d87a">!</text>
+      </svg>
+    </div>
   )
 }
 
-// Large centred version for auth / onboarding screens
 export function LogoAuth() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-      <svg width="220" height="40" viewBox="0 0 220 40" fill="none" aria-label="WhatATrade!" role="img">
-        <title>WhatATrade!</title>
-        <text
-          x="0" y="30"
-          fontFamily="Outfit, ui-sans-serif, system-ui"
-          fontSize="28" fontWeight="500"
-          fill="var(--txt-0)"
-        >
-          Trader
-        </text>
-        <text
-          x="96" y="30"
-          fontFamily="Outfit, ui-sans-serif, system-ui"
-          fontSize="28" fontWeight="300"
-          fill="#378ADD"
-        >
-          Pulse
-        </text>
-        <polyline
-          points="0,36 20,36 24,29 28,40 32,22 36,36 56,36 66,30 76,33 96,33 220,33"
-          stroke="#378ADD" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-          fill="none" opacity="0.5"
-        />
-        <circle cx="76" cy="33" r="2.5" fill="#378ADD" opacity="0.8" />
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:10}}>
+      <LogoMark size={52}/>
+      <svg width="210" height="36" viewBox="0 0 210 36" fill="none" aria-label="WhatATrade!" role="img">
+        <text x="0"   y="28" fontFamily="Outfit,ui-sans-serif" fontSize="26" fontWeight="600" fill="#f0f2ff">What</text>
+        <text x="78"  y="28" fontFamily="Outfit,ui-sans-serif" fontSize="26" fontWeight="400" fill="#378ADD">A</text>
+        <text x="97"  y="28" fontFamily="Outfit,ui-sans-serif" fontSize="26" fontWeight="300" fill="#f0f2ff">Trade</text>
+        <text x="183" y="28" fontFamily="Outfit,ui-sans-serif" fontSize="30" fontWeight="700" fill="#22d87a">!</text>
       </svg>
-      <span style={{
-        fontSize: 11,
-        color: 'var(--txt-2)',
-        letterSpacing: '0.12em',
-        textTransform: 'uppercase',
-        fontFamily: 'Outfit, ui-sans-serif',
-      }}>
+      <span style={{fontSize:10,color:'#5c6285',letterSpacing:'0.14em',textTransform:'uppercase',fontFamily:'Outfit,ui-sans-serif'}}>
         Trading Journal
       </span>
     </div>
