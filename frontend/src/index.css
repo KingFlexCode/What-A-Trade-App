@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ── */
+:root {
+  --bg-0: #08090d;
+  --bg-1: #0e1017;
+  --bg-2: #13151e;
+  --bg-3: #1a1d28;
+  --bg-4: #20243a;
+  --border:    rgba(255,255,255,0.10);
+  --border-2:  rgba(255,255,255,0.16);
+  --border-3:  rgba(255,255,255,0.26);
+  --txt-0: #f0f2ff;
+  --txt-1: #9ba3c4;
+  --txt-2: #5c6285;
+  --accent:        #5b8af0;
+  --accent-hover:  #4a77d4;
+  --accent-dim:    rgba(91,138,240,0.08);
+  --accent-border: rgba(91,138,240,0.18);
+  --green:        #22d87a;
+  --green-dim:    rgba(34,216,122,0.08);
+  --green-border: rgba(34,216,122,0.18);
+  --red:        #f05b6b;
+  --red-dim:    rgba(240,91,107,0.08);
+  --red-border: rgba(240,91,107,0.18);
+  --amber:     #f0b45b;
+  --amber-dim: rgba(240,180,91,0.10);
+  --purple:     #a78bfa;
+  --purple-dim: rgba(167,139,250,0.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg-0);
+  color: var(--txt-0);
+  font-family: 'Outfit', ui-sans-serif, system-ui;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-4); border-radius: 3px; }
+
+/* ── Utilities ── */
+.mono { font-family: 'DM Mono', ui-monospace, monospace; }
+.pos  { color: var(--green); }
+.neg  { color: var(--red); }
+
+/* ── Input / Select base ── */
+input, select, textarea {
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  border-radius: 9px;
+  color: var(--txt-0);
+  font-family: 'Outfit', ui-sans-serif;
+  font-size: 13px;
+  padding: 8px 11px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+select option { background: var(--bg-3); }
+
+/* ── Animations ── */
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+.live-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 1.5s infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+/* ── Chart tooltip override ── */
+.recharts-tooltip-wrapper { outline: none; }
+.recharts-default-tooltip {
+  background: var(--bg-3) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 8px !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+}
