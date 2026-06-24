@@ -23,8 +23,8 @@ import SettingsPage    from './pages/SettingsPage'
 // Guard: redirect to login if not authenticated
 function Private({ children }) {
   const { isAuthenticated, onboardingComplete } = useStore()
-  if (!isAuthenticated)       return <Navigate to="/login"      replace />
-  if (!onboardingComplete)    return <Navigate to="/onboarding" replace />
+  if (!isAuthenticated)    return <Navigate to="/" replace />
+  if (!onboardingComplete) return <Navigate to="/onboarding" replace />
   return <AppLayout>{children}</AppLayout>
 }
 
