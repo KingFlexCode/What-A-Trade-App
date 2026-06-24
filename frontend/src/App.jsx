@@ -38,18 +38,18 @@ export default function App() {
       <Route path="/onboarding" element={<OnboardingPage />} />
 
       {/* Protected */}
-      <Route path="/"          element={<Private><DashboardPage /></Private>} />
-      <Route path="/trades"    element={<Private><TradesPage /></Private>} />
+      <Route path="/"           element={<Private><DashboardPage /></Private>} />
+      <Route path="/trades"     element={<Private><TradesPage /></Private>} />
       <Route path="/trades/:id" element={<Private><TradeDetailPage /></Private>} />
-      <Route path="/log"       element={<Private><LogTradePage /></Private>} />
-      <Route path="/log/:id"   element={<Private><LogTradePage /></Private>} />
-      <Route path="/calendar"  element={<Private><CalendarPage /></Private>} />
-      <Route path="/analytics" element={<Private><AnalyticsPage /></Private>} />
-      <Route path="/risk"      element={<Private><RiskPage /></Private>} />
-      <Route path="/insights"  element={<Private><InsightsPage /></Private>} />
-      <Route path="/playbooks" element={<Private><PlaybooksPage /></Private>} />
-      <Route path="/brokers"   element={<Private><BrokersPage /></Private>} />
-      <Route path="/settings"  element={<Private><SettingsPage /></Private>} />
+      <Route path="/log"        element={<Private><LogTradePage /></Private>} />
+      <Route path="/log/:id"    element={<Private><LogTradePage /></Private>} />
+      <Route path="/calendar"   element={<Private><CalendarPage /></Private>} />
+      <Route path="/analytics"  element={<Private><AnalyticsPage /></Private>} />
+      <Route path="/risk"       element={<Private><RiskPage /></Private>} />
+      <Route path="/insights"   element={<Private><InsightsPage /></Private>} />
+      <Route path="/playbooks"  element={<Private><PlaybooksPage /></Private>} />
+      <Route path="/brokers"    element={<Private><BrokersPage /></Private>} />
+      <Route path="/settings"   element={<Private><SettingsPage /></Private>} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
