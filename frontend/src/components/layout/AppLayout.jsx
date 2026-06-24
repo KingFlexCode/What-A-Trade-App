@@ -8,7 +8,7 @@ import NotificationPanel from './NotificationPanel'
 
 const NAV = [
   { section: 'Overview' },
-  { to: '/',          icon: 'layout-dashboard', label: 'Dashboard'   },
+  { to: 'dashboard',  icon: 'layout-dashboard', label: 'Dashboard'   },
   { to: '/trades',    icon: 'list-details',     label: 'Trade log'   },
   { to: '/calendar',  icon: 'calendar-stats',   label: 'Calendar'    },
   { section: 'Analyse' },

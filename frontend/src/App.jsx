@@ -38,7 +38,7 @@ export default function App() {
       <Route path="/onboarding" element={<OnboardingPage />} />
 
       {/* Protected */}
-      <Route path="/"           element={<Private><DashboardPage /></Private>} />
+      <Route path="/dashboard"  element={<Private><DashboardPage /></Private>} />
       <Route path="/trades"     element={<Private><TradesPage /></Private>} />
       <Route path="/trades/:id" element={<Private><TradeDetailPage /></Private>} />
       <Route path="/log"        element={<Private><LogTradePage /></Private>} />
@@ -52,7 +52,7 @@ export default function App() {
       <Route path="/settings"   element={<Private><SettingsPage /></Private>} />
 
       {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*"           element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
